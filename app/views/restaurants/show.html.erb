@@ -1,8 +1,15 @@
 <div class="container">
-
-  <h1><%= @restaurant.name %></h1>
-  <p><%= @restaurant.category %></p>
-  <p><%= @restaurant.address %></p>
-  <%= link_to 'Review', new_restaurant_review_path(@restaurant) , :class => 'btn btn-primary' %>
-
+  <div class="card">
+    <div class="card-header">
+      <%= @restaurant.name %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @restaurant.category %></h5>
+      <p class="card-text"><%= @restaurant.address %></p>
+      <%= link_to 'Write a Review', new_restaurant_review_path(@restaurant) , :class => 'btn btn-primary' %>
+      <%= link_to 'All Reviews', restaurant_reviews_path(@restaurant), :class => 'btn btn-primary' %>
+      <%= link_to 'Delete', restaurant_path(@restaurant), :class => 'btn btn-danger', method: :delete %>
+    </div>
+  </div>
 </div>
+
